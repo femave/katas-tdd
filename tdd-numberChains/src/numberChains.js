@@ -1,26 +1,23 @@
 function numberChain (number) {
   var result = []
+  var numberApear = []
   var nOriginal = parseInt(number.toString().split('').sort().join(''))
   var nReversed = parseInt(number.toString().split('').sort(function (a, b) { return b - a }).join(''))
   var restOfNumbers = nReversed - nOriginal
-  var newNumber = parseInt(restOfNumbers.toString().split('').sort().join(''))
-  var newNumberDesc = parseInt(restOfNumbers.toString().split('').sort(function (a, b) { return b - a }).join(''))
-  var newRestOfNumbers = newNumberDesc - newNumber
-  result.push('The original number was => ' + number + '\n', nReversed + ' - ' + nOriginal + ' = ' + restOfNumbers + '\n', newNumberDesc + ' - ' + newNumber + ' = ' + newRestOfNumbers + '\n')
+  result.push('The original number was => ' + number + '\n', nReversed + ' - ' + nOriginal + ' = ' + restOfNumbers + '\n')
 
-  var chainLength = 2
+  var chainLength = 1
 
-  while (newRestOfNumbers !== restOfNumbers) {
-    chainLength += 2
-    number = newRestOfNumbers
-
+  while (numberApear.includes(restOfNumbers) !== true) {
+    numberApear.push(restOfNumbers)
+    chainLength++
+    number = restOfNumbers
     nOriginal = parseInt(number.toString().split('').sort().join(''))
     nReversed = parseInt(number.toString().split('').sort(function (a, b) { return b - a }).join(''))
     restOfNumbers = nReversed - nOriginal
-    newNumber = parseInt(restOfNumbers.toString().split('').sort().join(''))
-    newNumberDesc = parseInt(restOfNumbers.toString().split('').sort(function (a, b) { return b - a }).join(''))
-    newRestOfNumbers = newNumberDesc - newNumber
-    result.push(nReversed + ' - ' + nOriginal + ' = ' + restOfNumbers + '\n', newNumberDesc + ' - ' + newNumber + ' = ' + newRestOfNumbers + '\n')
+    numberApear.push(restOfNumbers)
+    numberApear.splice(-1, 1)
+    result.push(nReversed + ' - ' + nOriginal + ' = ' + restOfNumbers + '\n')
   }
   result.push('The length of chain was => ' + chainLength)
 
