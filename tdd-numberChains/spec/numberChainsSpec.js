@@ -7,10 +7,10 @@ describe('function numberChain', function () {
     expect(typeof numberChain).toBe('function')
   })
 
-  // it('should be return an array', function () {
-  //   var result = numberChain(12)
-  //   expect(Array.isArray(result)).toBe(true)
-  // })
+  it('should be return an string', function () {
+    var result = numberChain(12)
+    expect(typeof result).toBe('string')
+  })
 
   it('should contain the original number chain', function () {
     var result = numberChain(123)
@@ -46,7 +46,7 @@ describe('function numberChain', function () {
     var result = numberChain(123)
     var pos = result.indexOf(495)
     var secondPos = result.indexOf(495, pos + 1)
-    expect(secondPos).toBe(37)
+    expect(secondPos).toBe(123)
   })
 
   it('should give the length of chain', function () {
