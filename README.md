@@ -5,4 +5,4 @@
 - [tdd gradeBook](tdd-gradeBook)
 - [tdd Rock-Paper-Scissors](tdd-Rock-Paper-Scissors)
 - [tdd fizzBuzz](tdd_fizzBuzz)
-- [tdd numberChain](tdd_numberChains)
+- [tdd numberChain](tdd-numberChains)
