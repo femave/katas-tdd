@@ -44,7 +44,9 @@ describe('function numberChain', function () {
 
   it('should do the same operation and stop when have the same result 2 times', function () {
     var result = numberChain(123)
-    expect(result).toContain(495) // How to check if number is 2 times
+    var pos = result.indexOf(495)
+    var secondPos = result.indexOf(495, pos + 1)
+    expect(secondPos).toBe(37)
   })
 
   it('should give the length of chain', function () {
